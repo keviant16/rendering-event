@@ -1,8 +1,10 @@
 .event-container {
   background-color: purple;
+  position: relative;
 }
 
 .event {
+  position: absolute;
   border: 1px dotted black;
   background-color: brown;
   text-align: center;

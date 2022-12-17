@@ -1,7 +1,7 @@
 interface EventProps {
   id: number,
   start: string,
-  duration: number
+  duration: number,
 }
 
 export default EventProps;
