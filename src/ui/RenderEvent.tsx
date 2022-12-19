@@ -5,6 +5,10 @@ import RenderEventProps from "../interface/RenderEventProps";
 import EVENTS from "../util/inputs.json";
 import Event from "./Event";
 
+/**
+ * 
+ * @returns 
+ */
 const RenderEvent: FunctionComponent<RenderEventProps> = () => {
   const screen = useScreen()
 
