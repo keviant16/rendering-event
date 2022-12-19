@@ -10,7 +10,7 @@ const useScreen = () => {
   const detectSize = () => {
     setScreen({
       width: window.innerWidth,
-      height: window.innerHeight
+      height: window.innerHeight,
     })
   }
 

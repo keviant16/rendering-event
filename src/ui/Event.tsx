@@ -1,27 +1,26 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useMemo } from "react";
 import useScreen from "../hook/useScreen";
 import EventProps from "../interface/EventProps";
 
 const Event: FunctionComponent<EventProps> = (props) => {
-  const { id, start, duration } = props
-  const screen = useScreen()
+  const { id, start, duration } = props;
+  const screen = useScreen();
+  const heightPerHour = useMemo(() => screen.height / 12, [screen.height]);
 
-  //convert start hour to number start position in pixel
-  const convertHourToPosition = (hour: string): number => {
-    const hourWithoutColon = hour.replace(":", "")
-    const hourToInt = parseInt(hourWithoutColon)
-
-    //adapt to current screen
-    const position = (hourToInt - 900)
-    return position
+  const convertToPosition = (start: string) => {
+    const hours = parseInt(start.substring(0, 2))
+    const minutes = parseInt(start.substring(3, 5))
+    const res = (hours - 9) * 60 + ((minutes * heightPerHour) / 60)
+    return res
   }
 
   return (
     <div
-      className="event"
+      className={"event n°" + id}
       style={{
-        top: convertHourToPosition(start),
-        width: screen.width
+        top: convertToPosition(start),
+        width: screen.width - 2,
+        height: (duration * heightPerHour) / 60
       }}
     >
       {id}
