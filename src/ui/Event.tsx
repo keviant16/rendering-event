@@ -11,7 +11,7 @@ import EventProps from "../interface/EventProps";
 const Event: FunctionComponent<EventProps> = (props) => {
   const { id, start, duration } = props;
   const screen = useScreen();
-  const { position } = useEvent(screen, start)
+  const { position, height } = useEvent(screen, start, duration)
 
 
   return (
@@ -19,6 +19,7 @@ const Event: FunctionComponent<EventProps> = (props) => {
       className={"event n°" + id}
       style={{
         top: position,
+        height: height
       }}
     >
       {id}

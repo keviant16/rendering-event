@@ -7,7 +7,7 @@ import ScreenProps from "../interface/ScreenProps"
  * @param start 
  * @returns 
  */
-const useEvent = (screen: ScreenProps, start: string) => {
+const useEvent = (screen: ScreenProps, start: string, duration: number) => {
 
   /**
    * 
@@ -18,8 +18,16 @@ const useEvent = (screen: ScreenProps, start: string) => {
     return (screen.height / 12) * ((hours - 9) + minutes / 60)
   }, [screen.height])
 
+  /**
+   * 
+   */
+  const height = useMemo(() => {
+    return ((screen.height / 12) * duration) / 60
+  }, [screen.height])
+
   return {
-    position
+    position,
+    height
   }
 }
 
