@@ -2,22 +2,16 @@ import { useEffect, useState } from "react"
 import ScreenProps from "../interface/ScreenProps"
 
 /**
- * 
+ * Custom hook to 
  * @returns 
  */
 const useScreen = () => {
-
-  /**
-   * 
-   */
   const [screen, setScreen] = useState<ScreenProps>({
     width: window.innerWidth,
     height: window.innerHeight,
   })
 
-  /**
-   * 
-   */
+
   useEffect(() => {
     window.addEventListener('resize', detectSize)
 
@@ -27,7 +21,7 @@ const useScreen = () => {
   }, [screen])
 
   /**
-  * 
+  * Update sceen width
   */
   const detectSize = () => {
     setScreen({

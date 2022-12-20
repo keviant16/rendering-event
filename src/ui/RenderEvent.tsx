@@ -15,10 +15,7 @@ const RenderEvent: FunctionComponent<RenderEventProps> = () => {
   return (
     <div
       className="event-container"
-      style={{
-        height: screen.height,
-        width: screen.width
-      }}
+      style={{ height: screen.height, width: screen.width }}
     >
       {EVENTS.map((event: EventProps) => <Event key={event.id} {...event} />)}
     </div >
