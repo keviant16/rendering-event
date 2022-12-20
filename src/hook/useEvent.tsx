@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react"
+import { useCallback, useMemo, } from "react"
 import EventProps from "../interface/EventProps";
 import HourProps from "../interface/HourProps";
 import ScreenProps from "../interface/ScreenProps"
@@ -73,6 +73,7 @@ const useEvent = (screen: ScreenProps, event: EventProps) => {
     console.log({ id, overlapEvents });
 
     return overlapEvents.length === 1 ? screen.width : screen.width / 2;
+    // eslint-disable-next-line
   }, [getEndEventHour, screen.width])
 
   const positionLeft = useMemo(() => {
@@ -84,7 +85,8 @@ const useEvent = (screen: ScreenProps, event: EventProps) => {
     const indexOfEvent = sortOverlapEvent.indexOf(event) + 1
 
     return indexOfEvent % 2 === 0 ? screen.width / 2 : 0
-  }, [getEndEventHour, screen.width])
+    // eslint-disable-next-line
+  }, [getEndEventHour, screen.width, id, getOverlapEvent])
   return {
     positionTop,
     height,
