@@ -6,8 +6,8 @@ import EVENTS from "../util/inputs.json";
 import Event from "./Event";
 
 /**
- * 
- * @returns 
+ * Render the event container component
+ * @returns List of events
  */
 const RenderEvent: FunctionComponent<RenderEventProps> = () => {
   const screen = useScreen()
