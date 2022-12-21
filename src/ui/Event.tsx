@@ -1,27 +1,29 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, ReactElement } from "react";
 import useEvent from "../hook/useEvent";
 import useScreen from "../hook/useScreen";
 import EventProps from "../interface/EventProps";
 
 /**
- * Render a event component
- * @param props 
- * @returns Event
+ * Render a event
+ * @param {EventProps} props The event data  
+ * @returns {ReactElement<any, any>} The event component
  */
-const Event: FunctionComponent<EventProps> = (props) => {
+const Event: FunctionComponent<EventProps> = (props: EventProps): ReactElement<any, any> => {
   const { id } = props;
+
+  /** HOOKS **/
   const screen = useScreen();
-  const { positionTop, height, width, positionLeft } = useEvent(screen, { ...props })
+  const { position, height, width } = useEvent(screen, { ...props })
 
 
   return (
     <div
       className={"event n°" + id}
       style={{
-        top: positionTop,
+        top: position.top,
         height: height,
         width: width - 2,
-        left: positionLeft
+        left: position.left
       }}
     >
       {id}
